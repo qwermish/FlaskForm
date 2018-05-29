@@ -58,7 +58,7 @@ def login():
         print user
         if user is None or (user.password != login_form.password.data):
             flash('Invalid username or password')
-            return redirect(url_for('login'))
+            return redirect(url_for('index'))
         #if successful validation, redirect to image URL with age argument
         return redirect(url_for('images', age=user.age))
     return render_template('index2.html', register_form=register_form, login_form=login_form)
