@@ -5,6 +5,7 @@ from forms import LoginForm, RegistrationForm
 import matplotlib.pyplot as plt
 from io import StringIO
 from StringIO import StringIO
+import os
 #from flask_heroku import Heroku
 
 app = Flask(__name__)
