@@ -54,9 +54,7 @@ def login():
     login_form = LoginForm()
 
     if request.method=="POST" and login_form.validate_on_submit():
-        print 'validated'
         user = db.session.query(User).filter_by(username=login_form.username.data).first()
-        print user
         if user is None or (user.password != login_form.password.data):
             flash('Invalid username or password')
             return redirect(url_for('index'))

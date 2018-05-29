@@ -4,6 +4,15 @@
 </head>
 {% from "_formhelpers.html" import render_field %}
 <body>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
 <h1>Register</h1>
 <form action="{{ url_for('register') }}" method="post">
 {{ register_form.csrf_token }}
@@ -30,5 +39,5 @@
 
 <hr>
 <address></address>
-<!-- hhmts start -->Last modified: Mon May 28 15:23:04 PDT 2018 <!-- hhmts end -->
+<!-- hhmts start -->Last modified: Mon May 28 20:30:47 PDT 2018 <!-- hhmts end -->
 </body> </html>
