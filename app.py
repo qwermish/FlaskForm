@@ -63,11 +63,11 @@ def login():
         return redirect(url_for('images', age=user.age))
     return render_template('index2.html', register_form=register_form, login_form=login_form)
 
-@app.route('/images/<age>')
+@app.route('/images/')
 def images(age):
     return render_template("images.html", title=age)
 
-@app.route('/fig/<age>')
+@app.route('/fig/')
 def fig(age):
     #number of bins in histogram
     BinsNumber = 10
