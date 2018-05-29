@@ -75,9 +75,9 @@ def fig(age):
     data = []
     for row in users:
         data.append(int(row[0]))
-#    print data
     n, bins, patches = plt.hist(data, bins=BinsNumber)
-#    print bins
+    for patch in patches: #set all patches to be blue
+        patch.set_fc('b')
     plt.ylabel('Number of registered users')
     plt.xlabel('Age')
     mybin = BinsNumber-1
@@ -85,6 +85,7 @@ def fig(age):
     for i in range(len(bins)-1):
         if ((int(age) >=bins[i]) and (int(age) < bins[i+1])):
             mybin = i
+    #set patch of current user to be red
     patches[mybin].set_fc('r')
     fig = plt.gcf() #fig is set to current figure
     img = StringIO()
