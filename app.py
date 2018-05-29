@@ -8,7 +8,8 @@ from StringIO import StringIO
 #from flask_heroku import Heroku
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/preregage'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/preregage'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'keep-going'
 #heroku = Heroku(app)
