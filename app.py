@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'keep-going'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 #heroku = Heroku(app)
 db = SQLAlchemy(app)
 
@@ -63,11 +64,11 @@ def login():
         return redirect(url_for('images', age=user.age))
     return render_template('index2.html', register_form=register_form, login_form=login_form)
 
-@app.route('/images/')
+@app.route('/images/<age>')
 def images(age):
     return render_template("images.html", title=age)
 
-@app.route('/fig/')
+@app.route('/fig/<age>/chart.png')
 def fig(age):
     #number of bins in histogram
     BinsNumber = 10
@@ -92,6 +93,15 @@ def fig(age):
     fig.savefig(img)
     img.seek(0)
     return send_file(img, mimetype='image/png')
+
+#cache busting
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
 
 if __name__ == '__main__':
     app.debug = True
