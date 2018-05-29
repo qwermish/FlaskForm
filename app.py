@@ -5,15 +5,13 @@ from forms import LoginForm, RegistrationForm
 import matplotlib.pyplot as plt
 from io import StringIO
 from StringIO import StringIO
-from flask.ext.heroku import Heroku
-
-#need to import forms.py
+#from flask_heroku import Heroku
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/preregage'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/preregage'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'keep-going'
-heroku = Heroku(app)
+#heroku = Heroku(app)
 db = SQLAlchemy(app)
 
 # Create our database model
