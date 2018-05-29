@@ -5,7 +5,7 @@ from forms import LoginForm, RegistrationForm
 import matplotlib.pyplot as plt
 from io import StringIO
 from StringIO import StringIO
-from flask_heroku import Heroku
+from flask.ext.heroku import Heroku
 
 #need to import forms.py
 
