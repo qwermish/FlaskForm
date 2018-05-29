@@ -8,3 +8,4 @@ gunicorn==17.5
 wsgiref==0.1.2
 numpy==1.7.0
 matplotlib==1.1.0
+psycopg2==2.7.4
