@@ -31,19 +31,6 @@ def index():
     login_form = LoginForm()
     return render_template('index2.html', register_form=register_form, login_form=login_form)
 
-# Save account to database and send to success page
-@app.route('/prereg', methods=['POST'])
-def prereg():
-    if request.method == 'POST':
-        username = request.form['username']
-        # Check that email does not already exist (not a great query, but works)
-        if not db.session.query(User).filter(User.username == username).count():
-            reg = User(username=username, password=request.form['password'], age=request.form['age'])
-            db.session.add(reg)
-            db.session.commit()
-            return render_template('success.html')
-    return render_template('index.html')
-
 @app.route('/register', methods=['POST'])
 def register():
     register_form = RegistrationForm(request.form)
