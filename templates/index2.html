@@ -1,9 +1,15 @@
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
 <html> <head>
 <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
+<!--import template for displaying validation errors for form fields-->
 {% from "_formhelpers.html" import render_field %}
 <body>
+<!--If password or username is incorrect, flash error message at top -->
+<!--of page-->
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <ul class=flashes>
@@ -13,6 +19,8 @@
     </ul>
   {% endif %}
 {% endwith %}
+    
+<div class="container">
 <h1>Register</h1>
 <form action="{{ url_for('register') }}" method="post">
 {{ register_form.csrf_token }}
@@ -23,7 +31,7 @@
     {{ render_field(register_form.age) }}
     {{ render_field(register_form.register) }}
   </dl>
-</form>
+  </form>
 
   <h1>Login</h1>
   <form action="{{ url_for('login') }}" method="post">
@@ -34,10 +42,11 @@
     {{ render_field(login_form.login) }}
     </dl>
   </form>
+</div>
 
 
 
 <hr>
 <address></address>
-<!-- hhmts start -->Last modified: Mon May 28 20:30:47 PDT 2018 <!-- hhmts end -->
+<!-- hhmts start -->Last modified: Wed May 30 19:33:04 PDT 2018 <!-- hhmts end -->
 </body> </html>

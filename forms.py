@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, IntegerField, SubmitField, validators
 from wtforms.validators import ValidationError, DataRequired, EqualTo, Length
 
-#need to copy import statements and login form class from other project
+#Defines fields in registration and login forms. Includes definitions of validators.
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
