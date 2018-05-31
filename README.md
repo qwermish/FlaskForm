@@ -5,9 +5,9 @@ The URL for the app is [https://rocky-cliffs-30443.herokuapp.com/](https://rocky
 
 ## Contents
 
-The Flask code is contained in app.py and forms.py. Procfile, requirements.txt, and runtime.txt are configuration files for the purposes of making the code run on Heroku.
+The Flask code is contained in `app.py` and `forms.py`. `Procfile`, `requirements.txt`, and `runtime.txt` are configuration files for the purposes of making the code run on Heroku.
 
-The templates folder contains the HTML templates for the main page (index2.html) and the page that displays the histogram (images.html).
+The templates folder contains the HTML templates for the main page (`index2.html`) and the page that displays the histogram (`images.html`).
 
 ## Main Resources Used
 - [http://blog.sahildiwan.com/posts/flask-and-postgresql-app-deployed-on-heroku/](http://blog.sahildiwan.com/posts/flask-and-postgresql-app-deployed-on-heroku/)
